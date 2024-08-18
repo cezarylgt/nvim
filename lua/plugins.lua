@@ -13,6 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require("lazy").setup({
-    "tanvirtin/monokai.nvim",
+    spec = "plugs",
+    change_detection = {notify = false}
 })
 

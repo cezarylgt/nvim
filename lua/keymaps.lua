@@ -8,6 +8,8 @@ local opts = {
 -- Normal mode --
 -----------------
 
+vim.keymap.set('n', '<Space>', '<leader>', opts)
+
 -- Hint: see `:h vim.map.set()`
 -- Better window navigation
 vim.keymap.set('n', '<C-h>', '<C-w>h', opts)
