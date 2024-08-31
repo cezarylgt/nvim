@@ -4,13 +4,6 @@ local opts = {
     silent = true,       -- do not show message
 }
 
------------------
--- Global -------
--- --------------
-
-vim.g.mapleader = " "
-vim.keymap.set('n', '<leader>v', ':e $MYVIMRC<CR>', opts)
-vim.keymap.set('n', '<leader>e', ':Explore<CR>', opts)
 
 -----------------
 -- Normal mode --

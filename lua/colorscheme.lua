@@ -1,8 +1,8 @@
+vim.cmd("colorscheme gruvbox")
+--local colorscheme = 'gruvbox'
 
-local colorscheme = 'monokai_pro'
-
-local is_ok, _ = pcall(vim.cmd, "colorscheme" .. colorscheme)
-if not is_ok then
-    vim.notify('colorscheme ' .. colorscheme .. ' not found!') 
-    return
-end
+--local is_ok, _ = pcall(vim.cmd, "colorscheme" .. colorscheme)
+--if not is_ok then
+--   vim.notify('colorscheme ' .. colorscheme .. ' not found!') 
+--  return
+--end
