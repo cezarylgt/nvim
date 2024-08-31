@@ -9,6 +9,10 @@ local opts = {
 -- Normal mode --
 -----------------
 
+
+------------------
+--- telescope ----
+------------------
 require('telescope').setup({})
 
 local builtin = require('telescope.builtin')
@@ -27,6 +31,14 @@ vim.keymap.set('n', '<leader>ps', function()
 end)
 vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
 
+
+---------------
+---Lsp---------
+---------------
+
+
+
+
 -- Hint: see `:h vim.map.set()`
 -- Better window navigation
 vim.keymap.set('n', '<C-h>', '<C-w>h', opts)
@@ -41,6 +53,8 @@ vim.keymap.set('n', '<C-Down>', ':resize +2<CR>', opts)
 vim.keymap.set('n', '<C-Left>', ':vertical resize -2<CR>', opts)
 vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 
+vim.keymap.set('n', '<leader>v', ':e $MYVIMRC<CR>', {})
+vim.keymap.set('n', '<leader>e', ':Explore<CR>', {})
 -----------------
 -- Visual mode --
 -----------------
