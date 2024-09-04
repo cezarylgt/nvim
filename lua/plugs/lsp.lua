@@ -102,6 +102,7 @@ return {
                 prefix = "",
             },
         })
+        -- REMAPS --
         local opts = { buffer = bufnr, noremap = true, silent = true }
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
@@ -122,5 +123,6 @@ return {
         vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
         vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
+        vim.keymap.set('i', '<M-Enter>', vim.lsp.buf.code_action, {})
     end
 }
