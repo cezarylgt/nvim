@@ -44,7 +44,7 @@ return {
         -- Just the menu
         map({ 't', 'n' }, '<M-Space>', bmui.toggle_quick_menu, opts)
         -- Open menu and search
-        map({ 't', 'n' }, '<M-m>', function ()
+        map({ 't', 'n' }, '<leader><Tab>', function ()
             bmui.toggle_quick_menu()
             -- wait for the menu to open
             vim.defer_fn(function ()

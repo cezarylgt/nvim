@@ -102,6 +102,7 @@ return {
                 prefix = "",
             },
         })
+        vim.lsp.set_log_level("TRACE")
         -- REMAPS --
         local opts = { buffer = bufnr, noremap = true, silent = true }
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)

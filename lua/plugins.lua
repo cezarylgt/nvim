@@ -16,4 +16,3 @@ require("lazy").setup({
     spec = "plugs",
     change_detection = {notify = false}
 })
-
