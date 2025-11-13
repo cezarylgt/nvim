@@ -28,6 +28,7 @@ return {
             ensure_installed = {
                 "lua_ls",
                 "rust_analyzer",
+                "pyright"
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -35,7 +36,7 @@ return {
                         capabilities = capabilities
                     }
                 end,
-                
+
                 zls = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.zls.setup({
@@ -50,7 +51,6 @@ return {
                     })
                     vim.g.zig_fmt_parse_errors = 0
                     vim.g.zig_fmt_autosave = 0
-
                 end,
                 ["lua_ls"] = function()
                     local lspconfig = require("lspconfig")
@@ -64,6 +64,54 @@ return {
                                 }
                             }
                         }
+                    }
+                end,
+
+                ["pyright"] = function()
+                    local lspconfig = require("lspconfig")
+
+                    -- Auto-detect Python from venv
+                    local function get_python_path()
+                        -- Check if running inside a venv
+                        -- if vim.env.VIRTUAL_ENV then
+                        --     return vim.env.VIRTUAL_ENV .. "./bin/python"
+                        -- end
+
+                        -- Check for common venv folders
+                        local cwd = vim.fn.getcwd()
+                        local venv_paths = {
+                            cwd .. "venv/bin/python",
+                            cwd .. "venv/bin/python",
+                            cwd .. "env/bin/python",
+                        }
+
+                        for _, path in ipairs(venv_paths) do
+                            if vim.fn.executable(path) == 1 then
+                                return path
+                            end
+                        end
+
+                        -- Fallback to system python
+                        return vim.fn.exepath("python3") or vim.fn.exepath("python")
+                    end
+
+                    lspconfig.pyright.setup {
+                        capabilities = capabilities,
+                        settings = {
+                            python = {
+                                pythonPath = get_python_path(),
+                                analysis = {
+                                    autoSearchPaths = true,
+                                    useLibraryCodeForTypes = true,
+                                    diagnosticMode = "workspace",
+                                    typeCheckingMode = "basic", -- or "off", "standard", "strict"
+                                }
+                            }
+                        },
+                        on_attach = function(client, bufnr)
+                            -- Optional: print which Python is being used
+                            print("Pyright using: " .. get_python_path())
+                        end,
                     }
                 end,
             }
