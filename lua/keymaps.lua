@@ -1,7 +1,7 @@
 -- define common options
 local opts = {
-    noremap = true,      -- non-recursive
-    silent = true,       -- do not show message
+    noremap = true, -- non-recursive
+    silent = true,  -- do not show message
 }
 
 
@@ -14,8 +14,8 @@ local opts = {
 --- telescope ----
 ------------------
 require('telescope').setup({
-    defaults = { 
-        file_ignore_patterns = {"node_modules", "android"}
+    defaults = {
+        file_ignore_patterns = { "node_modules", "android" }
     }
 })
 
@@ -29,7 +29,7 @@ end)
 vim.keymap.set('n', '<leader>pWs', function()
     local word = vim.fn.expand("<cWORD>")
     builtin.grep_string({ search = word })
- end)
+end)
 vim.keymap.set('n', '<leader>ps', function()
     builtin.grep_string({ search = vim.fn.input("Grep > ") })
 end)
@@ -45,11 +45,15 @@ vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
 
 -- Hint: see `:h vim.map.set()`
 -- Better window navigation
-vim.keymap.set('n', '<C-h>', '<C-w>h', opts)
-vim.keymap.set('n', '<C-j>', '<C-w>j', opts)
-vim.keymap.set('n', '<C-k>', '<C-w>k', opts)
-vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
+-- vim.keymap.set('n', '<C-h>', ':wincmd h<CR>', opts)
+-- vim.keymap.set('n', '<C-j>', ':wincmd j<CR>', opts)
+-- vim.keymap.set('n', '<C-k>', ':wincmd k<CR>', opts)
+-- vim.keymap.set('n', '<C-l>', ':wincmd l<CR>', opts)
 
+-- vim.keymap.set('n', '<C-h>', '<C-w>h', opts)
+-- vim.keymap.set('n', '<C-j>', '<C-w>j', opts)
+-- vim.keymap.set('n', '<C-k>', '<C-w>k', opts)
+-- vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
 -- Resize with arrows
 -- delta: 2 lines
 vim.keymap.set('n', '<C-Up>', ':resize -2<CR>', opts)
@@ -75,4 +79,3 @@ vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
 vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
 vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
 vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
-
