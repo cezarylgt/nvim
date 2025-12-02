@@ -79,3 +79,8 @@ vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
 vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
 vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
 vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
+
+require("rest-nvim").setup()
+
+vim.keymap.set("n", "<leader>rr", "<cmd>Rest run<cr>", { desc = "Run request" })
+vim.keymap.set("n", "<leader>rl", "<cmd>Rest run last<cr>", { desc = "Run last" })
